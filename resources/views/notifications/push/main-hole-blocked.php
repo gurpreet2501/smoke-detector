@@ -1,0 +1,1 @@
+This main hole named <?=$machine_name?> is blocked.
