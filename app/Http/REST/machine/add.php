@@ -34,10 +34,22 @@ class add
 			return $req_fields;
 		
 
-		$count = Models\Machine::where('serial_no', $data['serial_no'])->count();
+		$res = Models\Machine::where('serial_no', $data['serial_no'])->first();
 
-		if($count)
+		
+
+		if($res->user_id == $user_id)
 			return Resp::errorCode(142);
+		else{
+			echo "<pre>";
+			print_r($res);
+			exit;
+
+
+		}
+
+		$data['is_admin'] = 1;
+
 
 		$resp = Models\Machine::create($data);
 
