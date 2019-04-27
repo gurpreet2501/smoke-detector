@@ -20,7 +20,8 @@ class Machine extends Model
         'user_id',
         'home_id',
         'floor_id',
-        'room_id'
+        'room_id',
+        'is_admin'
 
     ];
 

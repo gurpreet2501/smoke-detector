@@ -3,6 +3,7 @@
 */
 namespace App\Libs;
 use App\Models;
+use App\Libs\ZrApi;
 use Illuminate\Support\Facades\Hash;
 use App\Libs\Notifications\Factory as Resp;
 class Validate
@@ -14,26 +15,26 @@ class Validate
 	}
 
 	public static function login($data){
-		
+	
 		$email = !empty($data['email']) ? $data['email'] : null;
 		$password = !empty($data['password']) ? $data['password'] : null;
 
 		if(!$password)
-			return Resp::errorCode(125);
+			return ZrApi::errorCode(125);
 
 		if(!$email)
-			return Resp::errorCode(129);
+			return ZrApi::errorCode(129);
 
 		$resp = Models\Users::where('email', $email)->first();
 		
 		if(!$resp)
-			return Resp::errorCode(130);
+			return ZrApi::errorCode(130);
 		
 		if($resp->email != $email)
-			return Resp::errorCode(130);
+			return ZrApi::errorCode(130);
 
 		if(!Hash::check($password, $resp->password))
-			return Resp::errorCode(130);
+			return ZrApi::errorCode(130);
 		
 		
 		 //Bind Device Id and device token
@@ -42,7 +43,7 @@ class Validate
 		 $resp->device_type = strtoupper($data['device_type']);
 		 $resp->save();
 
-		 return Resp::success([]);
+		 return ZrApi::success([]);
 
 	}
 	
@@ -60,7 +61,7 @@ class Validate
 		$token = User::generateToken($data['id']);
 
 		if(empty($token))
-			return Resp::errorCode(131);
+			return ZrApi::errorCode(131);
 		
 		$data['token'] = $token;
 		
@@ -68,11 +69,11 @@ class Validate
 	}
 
 	public static function fields($data,$rules){
-			
+		
 			foreach ($rules as $key => $v) {
 				
 				if(!isset($data[$key]))
-					return Resp::errorCode($v);
+					return ZrApi::errorCode($v);
 
 			}
 	}

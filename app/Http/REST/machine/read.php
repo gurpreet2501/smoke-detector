@@ -3,6 +3,7 @@ namespace App\Http\REST\machine;
 use App\Models;
 use Illuminate\Http\Request;
 use App\Libs\Validate;
+use App\Libs\ZrApi;
 use App\Notifications\Factory as Notifications;
 use Illuminate\Support\Facades\Hash;
 use App\Libs\Notifications\Factory as Resp;
@@ -20,10 +21,10 @@ class read
 		$data = $request->get('data');
 		
 		$data['user_id'] = $user_id;
-		
+	
 		$req_fields = Validate::fields($data, $this->rules);
 		
-		if($req_fields['STATUS'] == 'FAILED')
+		if($req_fields['STATUS'] == 'FAILED') 
 			return $req_fields;
 	
 	 	$machines = [];
@@ -47,7 +48,7 @@ class read
 		if(count($machines))
 			$machines = $machines->toArray();
 
-	  return Resp::success($machines,$request->get('token'));
+	  return ZrApi::success($machines,$request->get('token'));
 
 	}
 	

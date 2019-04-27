@@ -452,6 +452,7 @@ class ComposerStaticInitc6a2fd0ff63b1fe964f9740526770b5b
         'App\\Models\\Home' => __DIR__ . '/../..' . '/app/Models/Home.php',
         'App\\Models\\Machine' => __DIR__ . '/../..' . '/app/Models/Machine.php',
         'App\\Models\\Room' => __DIR__ . '/../..' . '/app/Models/Room.php',
+        'App\\Models\\SharedMachine' => __DIR__ . '/../..' . '/app/Models/SharedMachine.php',
         'App\\Models\\UserSessions' => __DIR__ . '/../..' . '/app/Models/UserSessions.php',
         'App\\Models\\Users' => __DIR__ . '/../..' . '/app/Models/Users.php',
         'App\\Notifications\\Dispatchers\\FE\\JobAssigned' => __DIR__ . '/../..' . '/app/Notifications/Dispatchers/FE/JobAssigned.php',

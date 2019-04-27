@@ -53,6 +53,7 @@ return array(
     'App\\Models\\Home' => $baseDir . '/app/Models/Home.php',
     'App\\Models\\Machine' => $baseDir . '/app/Models/Machine.php',
     'App\\Models\\Room' => $baseDir . '/app/Models/Room.php',
+    'App\\Models\\SharedMachine' => $baseDir . '/app/Models/SharedMachine.php',
     'App\\Models\\UserSessions' => $baseDir . '/app/Models/UserSessions.php',
     'App\\Models\\Users' => $baseDir . '/app/Models/Users.php',
     'App\\Notifications\\Dispatchers\\FE\\JobAssigned' => $baseDir . '/app/Notifications/Dispatchers/FE/JobAssigned.php',

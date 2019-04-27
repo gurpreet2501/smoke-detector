@@ -2,6 +2,7 @@
 namespace App\Http\REST\home;
 use App\Models;
 use Illuminate\Http\Request;
+use App\Libs\ZrApi;
 use App\Libs\Validate;
 use App\Notifications\Factory as Notifications;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +28,7 @@ class read
     if(count($resp))
     	$resp = $resp->toArray();
      
-	  return Resp::success($resp, $request->get('token'));
+	  return ZrApi::success($resp, $request->get('token'));
 
 	}
 }

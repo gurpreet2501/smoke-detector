@@ -62,6 +62,7 @@ return [
 	'171' => 'Floor name is required',
 	'172' => 'Floor with this name already exists',
 	'173' => 'Room with this name already exists',
+	'174' => 'Machine already shared',
 	
 ];
  ?>

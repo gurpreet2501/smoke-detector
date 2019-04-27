@@ -3,6 +3,7 @@ namespace App\Http\REST\room;
 use App\Models;
 use Illuminate\Http\Request;
 use App\Libs\Validate;
+use App\Libs\ZrApi;
 use App\Notifications\Factory as Notifications;
 use Illuminate\Support\Facades\Hash;
 use App\Libs\Notifications\Factory as Resp;
@@ -33,11 +34,11 @@ class add
 							->count();
         
         if($room)
-        	return Resp::errorCode(173);					
+        	return ZrApi::errorCode(173);					
 
 	  	$resp = Models\Room::create($data);
 
-	    return Resp::success($resp->toArray(), $request->get('token'));
+	    return ZrApi::success($resp->toArray(), $request->get('token'));
 
 	}
 }

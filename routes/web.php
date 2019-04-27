@@ -43,9 +43,9 @@ Route::get('/migrate', function () {
 });
 
 
-
 Route::post("/{version}", function ($version, Request $request) {
 
+		$request->headers->set('Accept', 'application/json');
 		$post = $request->all();
 	
 		$user_id = 0;
@@ -57,7 +57,7 @@ Route::post("/{version}", function ($version, Request $request) {
 		$class = "App\\Http\\REST\\".$post["object"]."\\".$post["api"];
 
 		if(!class_exists($class))
-			 return Resp::errorCode(114);
+			 return ZrApi::errorCode(114);
 
 		$classobj= 'App\\Http\\REST\\'.ucfirst($post['object']).'\\'.ucfirst($post['api']);
 
@@ -72,25 +72,27 @@ Route::post("/{version}", function ($version, Request $request) {
 		if(!empty($user->role)){
 			if($user->role == 'CUSTOMER'){
 				if(!method_exists($obj, 'customer'))
-						return Resp::errorCode(141);
+						return ZrApi::errorCode(141);
 
 				$resp =  $obj->customer($request,$user_id);
 			}
 
 			if($user->role == 'ADMIN'){
 				 if(!method_exists($obj, 'admin'))
-					return Resp::errorCode(141);
+					return ZrApi::errorCode(141);
 
 				$resp =  $obj->admin($request,$user_id);
 			}
 		}else{
 			if(!method_exists($obj, 'guest'))
-					return Resp::errorCode(141);
+					return ZrApi::errorCode(141);
 
 			$resp =  $obj->guest($request,$user_id=null);
 		}
 		
-		return ZrApi::json($resp);
+	
+	return response()->json($resp,200);
+	// return response()->json($resp);
 
 });
 
@@ -139,13 +141,14 @@ Route::get("/{version}", function ($version, Request $request) {
 		}else{
 			if(!method_exists($obj, 'guest'))
 					return Resp::errorCode(141);
-
+ 
 			$resp =  $obj->guest($request,$user_id=null);
 		}
 		
-			//If a person calls api that needs token. But token is absent. Then it will check for guest function.  But it will be absent
+			//If a person calls api that needs token. But token is absent. Then it will check for guest function.  But it will be absent 
 		
-		return ZrApi::json($resp);
+		return response()->json($resp);
+		// return ZrApi::json($resp);
 
 });
 

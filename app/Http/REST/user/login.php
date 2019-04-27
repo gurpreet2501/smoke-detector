@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Libs\Notifications\Factory as Resp;
 use App\Libs\Validate;
+use App\Libs\ZrApi;
 
 
 class login
@@ -18,24 +19,25 @@ class login
         'device_token' => 160
 	];	
 	public function guest(Request $request,$user_id){
-
+ 
 		$data = $request->get('data');
-		
-		$req_fields = Validate::fields($data, $this->rules);
 	
-		if($req_fields['STATUS'] == 'FAILED')
+		$req_fields = Validate::fields($data, $this->rules);
+		
+		if($req_fields)
 			return $req_fields;
 	
 			$resp = Validate::login($data);
 		
-			if($resp['STATUS'] == 'FAILED')
-				 return Resp::errorCode(130);
+			if($resp['STATUS'] == 0) 
+				 return ZrApi::errorCode(130);
 
 		$resp = Models\Users::where('email',$data['email'])->first();
 		$data = Validate::unsetFields($resp->toArray());
+		
 		$user_id = $resp->id;
 		$token = User::generateToken($user_id);
-		return Resp::success($data,$token);
+		return ZrApi::success($data,$token);
 
 	}
 }

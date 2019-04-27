@@ -2,6 +2,7 @@
 namespace App\Http\REST\floor;
 use App\Models;
 use Illuminate\Http\Request;
+use App\Libs\ZrApi;
 use App\Libs\Validate;
 use App\Notifications\Factory as Notifications;
 use Illuminate\Support\Facades\Hash;
@@ -30,12 +31,12 @@ class add
 							->where('name', trim($data['name']))
 							->count();
         
-        if($floor)
-        	return Resp::errorCode(172);					
+    if($floor)
+    	return ZrApi::errorCode(172);					
 
 		$resp = Models\Floor::create($data);
 
-	    return Resp::success($resp->toArray(), $request->get('token'));
+	    return ZrApi::success($resp->toArray(), $request->get('token'));
 
 	}
 }

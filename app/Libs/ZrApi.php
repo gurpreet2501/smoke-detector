@@ -9,19 +9,36 @@ class ZrApi
 	{
 		$this->resp = $resp;
 	}
-
-	public static function success($resp){
-		
-		$data = [
-			'STATUS' => 'SUCCESS',
-			'RESPONSE' => is_object($resp) ? $resp->toArray() : $resp
-		];
-    
-		return response()->json($data);
-	}
 	
 	public static function json($data){
+
 		return response()->json($data);
+	}
+
+	public static function successWithoutToken($data){
+		
+		return [
+		'STATUS' => 1,
+		'RESPONSE'   => $data,
+		'ERRORS' => []
+		];
+	}
+
+
+
+	public static function success($data,$token=null){
+		
+		return [
+		'STATUS' => 1,
+		'TOKEN'  => $token,
+		'RESPONSE' => $data,
+		];
+	}
+
+	public static function errorCode($code){
+		
+		return ["MESSAGE" => config("errors.{$code}"), "STATUS" => 0];
+
 	}
 
 }

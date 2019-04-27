@@ -3,6 +3,7 @@ namespace App\Http\REST\user;
 use App\Models;
 use Illuminate\Http\Request;
 use App\Libs\User;
+use App\Libs\ZrApi;
 use App\Libs\Validate;
 use Illuminate\Support\Facades\Hash;
 use App\Libs\Notifications\Factory as Resp;
@@ -34,15 +35,15 @@ class create
 		$pass_length = strlen($data['password']);
 
 		if($pass_length < 8 || $pass_length>15)
-			return Resp::errorCode(152);
+			return ZrApi::errorCode(152);
 
-		$email_count = Models\Users::where('email', $data['email'])->count();
+		$email_count = Models\Users::where('email', $data['email'])->count(); 
 		if($email_count)
-			return Resp::errorCode(128);
+			return ZrApi::errorCode(128);
 
 		$username_count = Models\Users::where('username', $data['username'])->count();
 		if($username_count)
-			return Resp::errorCode(127);
+			return ZrApi::errorCode(127);
 
 		$data['password'] = Hash::make($data['password']);
 		$data['activated'] = 1;
@@ -56,7 +57,7 @@ class create
 	 	
 	 	unset($output['password']);
 
-		return Resp::success($output,$token);
+		return ZrApi::success($output,$token);
 	}
 
 	

@@ -1,1 +1,1 @@
-Your machine <?=$machine_name?> is unblocked.
+Machine sharing request from  with serial <?=$machine_name?> 
