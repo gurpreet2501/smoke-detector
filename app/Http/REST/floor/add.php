@@ -17,7 +17,7 @@ class add
 	];	
   
 	public function customer(Request $request, $user_id){
-
+		//Floor Add api
 		$data = $request->get('data');
 	
 		$data['user_id'] = $user_id;
