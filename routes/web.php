@@ -90,10 +90,8 @@ Route::post("/{version}", function ($version, Request $request) {
 			$resp =  $obj->guest($request,$user_id=null);
 		}
 		
+	  return response()->json($resp, 200, [], JSON_NUMERIC_CHECK);	
 	
-	return response()->json($resp,200);
-	// return response()->json($resp);
-
 });
 
 
