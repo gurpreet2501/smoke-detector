@@ -24,14 +24,28 @@ class read
 		if($req_fields['STATUS'] == 'FAILED')
 			return $req_fields;
 		
-		$rooms = Models\Room::where('user_id',$user_id)
-							->with('home')
-							->with('floor')
-							->get();
-        
-        if(!count($rooms))
-        	return ZrApi::errorCode(175);					
 
+		$req_keys = ['home_id','floor_id'];
+
+		$rooms =  Models\Room::where('user_id',$user_id)
+													->with('home')
+													->with('floor');
+
+		//Checking if key is not present then it will add the condition with null		
+		foreach ($req_keys as $key) {
+			
+					if(!empty($data[$key]) && $data[$key]>0)
+						$rooms = $rooms->where($key,$data[$key]);
+					// else
+					// 	$rooms = $rooms->where($key,NULL);
+		}						
+
+		$rooms = $rooms->get();
+		
+		if(!count($rooms))
+		  return ZrApi::errorCode(175);		
+
+	
 	  	
 
 	    return ZrApi::success($rooms->toArray(), $request->get('token'));
