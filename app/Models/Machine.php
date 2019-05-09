@@ -21,7 +21,9 @@ class Machine extends Model
         'home_id',
         'floor_id',
         'room_id',
-        'is_admin'
+        'is_admin',
+        'user_id',
+        'machine_status'
 
     ];
 

@@ -22,11 +22,17 @@ class read
 		if($req_fields['STATUS'] == 'FAILED')
 			return $req_fields;
 		
-		$resp = Models\Users::where('id',$user_id)->first();
+		$resp = Models\Users::with('machines')->where('id',$user_id)->first();
+		
+		$machines_count = !empty($resp->machines) ? count($resp->machines) : 0; 
 		
 		if(!$resp)
-			return Resp::errorCode(135);		
+			return Resp::errorCode(135);
+
 		$data = Validate::unsetFields($resp->toArray());
+
+		$data['machines_count'] = $machines_count;
+		
 		return Resp::success($data);
 
 	}

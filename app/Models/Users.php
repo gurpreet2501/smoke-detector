@@ -7,6 +7,7 @@ class Users extends Model
 {
 
     protected $table = 'tank_auth_users';
+  
 
     protected $fillable = ['username','password','email','activated','banned','device_id','phone','role','name','password_reset_token','device_type','device_token'];
 
@@ -31,6 +32,11 @@ class Users extends Model
 
      function address(){
         return $this->hasOne('App\Models\CustomerAddresses', 'user_id', 'id');
+     }
+
+
+     function machines(){
+        return $this->hasMany('App\Models\Machine', 'user_id', 'id');
      }
     
 }
