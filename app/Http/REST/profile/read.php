@@ -1,6 +1,8 @@
 <?php 
 namespace App\Http\REST\profile;
 use App\Models;
+use App\Libs\User;
+use App\Libs\ZrApi;
 use Illuminate\Http\Request;
 use App\Libs\Validate;
 use Illuminate\Support\Facades\Hash;
@@ -32,8 +34,8 @@ class read
 		$data = Validate::unsetFields($resp->toArray());
 
 		$data['machines_count'] = $machines_count;
-		
-		return Resp::success($data);
+		$token = User::generateToken($user_id);
+		return ZrApi::success($data,$token);
 
 	}
 }
