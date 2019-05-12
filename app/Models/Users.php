@@ -9,7 +9,7 @@ class Users extends Model
     protected $table = 'tank_auth_users';
   
 
-    protected $fillable = ['username','password','email','activated','banned','device_id','phone','role','name','password_reset_token','device_type','device_token'];
+    protected $fillable = ['username','password','email','activated','banned','device_id','phone','role','name','password_reset_token','device_type','device_token','profile_pic'];
 
      protected $rules = [
         'username' => 'required|unique',

@@ -64,6 +64,8 @@ return [
 	'173' => 'Room with this name already exists',
 	'174' => 'Machine already shared',
 	'175' => 'No Room Found!',
+	'176' => 'Nothing to update',
+	'177' => 'Unable to update. Server might be down. Please try again',
 	
 ];
  ?>
