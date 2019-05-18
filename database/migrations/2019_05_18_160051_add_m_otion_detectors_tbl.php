@@ -16,6 +16,7 @@ class AddMOtionDetectorsTbl extends Migration
         Schema::create('sdetect_motion_detectors', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->integer('machine_id');
             $table->integer('serial');
             $table->string('name');
             $table->integer('motion_detector_status');
