@@ -66,6 +66,9 @@ return [
 	'175' => 'No Room Found!',
 	'176' => 'Nothing to update',
 	'177' => 'Unable to update. Server might be down. Please try again',
+	'178' => 'Motion Detector serial is required',
+	'179' => 'Motion Detector status is required',
+	'180' => 'Motion Detector already exists',
 	
 ];
  ?>

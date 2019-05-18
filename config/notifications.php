@@ -5,7 +5,7 @@ use App\Notifications\Push\AppleService;
 return [
     'push' => [
         'apple' => [
-            'env' => AppleService::SANDBOX_MODE,
+            'env' => AppleService::SANDBOX_MODE, //PRODUCTION_MODE
             'proCert'       => 'Certificates_ySkolar.pem',//'ProPushDev.pem',
         ],
         'android' => [
