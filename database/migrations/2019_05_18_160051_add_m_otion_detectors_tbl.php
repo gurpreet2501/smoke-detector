@@ -17,7 +17,7 @@ class AddMOtionDetectorsTbl extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('serial');
-            $table->integer('name');
+            $table->string('name');
             $table->integer('motion_detector_status');
             $table->integer('motion_detector_button_status');
             $table->timestamps();
