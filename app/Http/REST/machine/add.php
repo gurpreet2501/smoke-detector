@@ -77,10 +77,12 @@ class add
 
 		$resp = Models\Machine::create($data);
 
-	  $machine_id = $resp->id;
-	 
+		if($resp)
+			$resp = $resp->toArray();
+		else
+			$resp = [];	 
 
-	 return Resp::success($resp->toArray(),$request->get('token'));
+	 return ZrApi::success($resp,$request->get('token'));
 
 	}
 }
