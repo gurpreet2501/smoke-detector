@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\REST\machine;
 use App\Models;
 use Illuminate\Http\Request;
@@ -12,7 +12,8 @@ class read_by_id
 {
 
 	protected $rules = [
-		'machine_id' => 181
+     
+      'machine_id' => 161
 	];	
   
 	public function customer(Request $request, $user_id){
@@ -27,21 +28,22 @@ class read_by_id
 			return $req_fields;
 	
 	 	$machines = [];
-
-		$machines = Models\Machine::where('id', $data['machine_id'])->first();
 		
-	
-		if(!$machines)
-			ZrApi::errorCode(181);
+		$req_keys = ['home_id','floor_id','room_id'];
 
-
+		$machines = Models\Machine::where('id', $data['machine_id'])
+							->where('user_id',$data['user_id'])->first();
+							
 		//Checking if key is not present then it will add the condition with null		
-
+		
 		if(count($machines))
 			$machines = $machines->toArray();
+		else
+			 return ZrApi::errorCode(181);
 
 	  return ZrApi::success($machines,$request->get('token'));
 
 	}
 	
 }
+

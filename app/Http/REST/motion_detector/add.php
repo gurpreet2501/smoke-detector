@@ -14,7 +14,7 @@ class add
 	      'serial' => 178,
         'name' => 115,
         'machine_id' => 161,
-        'motion_detector_status' => 179
+        'status' => 179
 	];	
 
 	public function customer(Request $request, $user_id=null){
@@ -46,7 +46,7 @@ class add
 
 		$resp  = Models\MotionDetectors::create([
 			'name' => $data['name'],
-			'motion_detector_status' => $data['motion_detector_status'],
+			'status' => $data['status'],
 			'serial' => $data['serial'],
 			'machine_id' => $data['machine_id'],
 			'user_id' => $user_id,
