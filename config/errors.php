@@ -69,6 +69,7 @@ return [
 	'178' => 'Motion Detector serial is required',
 	'179' => 'Motion Detector status is required',
 	'180' => 'Motion Detector already exists',
+	'181' => 'Machine not found',
 	
 ];
  ?>
