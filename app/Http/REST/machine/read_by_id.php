@@ -26,14 +26,15 @@ class read_by_id
 		
 		if($req_fields['STATUS'] == 'FAILED') 
 			return $req_fields;
-	
+	 
 	 	$machines = [];
 		
 		$req_keys = ['home_id','floor_id','room_id'];
 
 		$machines = Models\Machine::where('id', $data['machine_id'])
 							->where('user_id',$data['user_id'])->first();
-							
+					
+		
 		//Checking if key is not present then it will add the condition with null		
 		
 		if(count($machines))
