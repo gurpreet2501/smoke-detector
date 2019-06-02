@@ -37,7 +37,7 @@ class read_by_id
 		
 		//Checking if key is not present then it will add the condition with null		
 		
-		if(count($machines))
+		if($machines)
 			$machines = $machines->toArray();
 		else
 			 return ZrApi::errorCode(181);
