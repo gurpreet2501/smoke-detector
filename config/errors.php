@@ -72,6 +72,8 @@ return [
 	'181' => 'Machine not found',
 	'182' => 'Shared by id is required',
 	'183' => 'Shared with id is required',
+	'184' => 'keyword field required',
+	'185' => 'No Results found!',
 	
 ];
  ?>
