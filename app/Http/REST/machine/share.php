@@ -22,26 +22,28 @@ class share
 				
 		$data = $request->get('data');
 
-
 		$data['user_id'] = $user_id;
 	
 		$req_fields = Validate::fields($data, $this->rules);
 		
 		if($req_fields['STATUS'] == 'FAILED') 
 			return $req_fields;
-
+		
 		$shared = Models\SharedMachines::where('shared_with', $data['shared_with'])->where('machine_id',$data['machine_id'])->count();
 
 		if($shared)
 			return ZrApi::errorCode(174);
 
-		$record = Models\SharedMachines::create([
-			'shared_with' => $data['shared_with'],
-			'shared_by' => $user_id,
-			'machine_id' => $data['machine_id']
-		]);
+		foreach ($data['shared_with'] as $key => $single_rec) {
+				 Models\SharedMachines::firstOrCreate([
+				'shared_with' => $single_rec,
+				'shared_by' => $user_id,
+				'machine_id' => $data['machine_id']
+			]);
+		}
+	
 
-	  return ZrApi::success($record->toArray(),$request->get('token'));
+	  return ZrApi::success(['Machines shared successfully']);
 
 	}
 	
