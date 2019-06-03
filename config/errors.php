@@ -70,6 +70,8 @@ return [
 	'179' => 'Motion Detector status is required',
 	'180' => 'Motion Detector already exists',
 	'181' => 'Machine not found',
+	'182' => 'Shared by id is required',
+	'183' => 'Shared with id is required',
 	
 ];
  ?>
