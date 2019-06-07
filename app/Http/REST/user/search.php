@@ -14,7 +14,7 @@ class search
 	      'keyword' => 184,
 	];	
 
-	public function guest(Request $request, $user_id=null){
+	public function customer(Request $request, $user_id=null){
 
 		$data = $request->get('data');
 		
