@@ -48,6 +48,21 @@ class read
 		if(count($machines))
 			$machines = $machines->toArray();
 
+
+		// get Shared machines
+		$shared_machines = [];
+		$shared_machines = Models\SharedMachines::has('machine')->with('machine')->where('shared_with',$user_id)->get();
+
+		if(count($shared_machines))
+			$shared_machines = $shared_machines->toArray();
+
+
+		$machines = [
+			'user_machines' => $machines,
+			'shared_machines' => $shared_machines
+			
+		];
+
 	  return ZrApi::success($machines,$request->get('token'));
 
 	}
