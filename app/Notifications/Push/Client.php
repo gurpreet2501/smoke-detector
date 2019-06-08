@@ -101,7 +101,7 @@ class Client implements Interfaces\Client
     public function toDevice(Array $tokens, $text, Array $customData = [], $userId, $appInfo, $jobId = 0)
     {
 
-      
+   
         $text = $this->trim($text);
        
         // $this->saveInDB($userId, $text, $customData, $jobId);
@@ -113,14 +113,14 @@ class Client implements Interfaces\Client
             {
                     
                 $service = $this->proAppleService;
-          
+           
                 $resp1 = $service->toDevice(
                     $tokens['device_id'],
                     $text,
                     $customData,
                     ''
                 );
-              
+             
                 if (!$resp1)
                     $this->_lastError = $service->lastError();
 
