@@ -30,7 +30,8 @@ class Client implements Interfaces\Client
 
     public function toCustomer($userId, $name, Array $viewData = [], Array $customData = [], $jobId = 0)
     {
-     
+      
+       
         $view = $this->getView($name, $viewData);
        
         
@@ -41,7 +42,7 @@ class Client implements Interfaces\Client
         $deviceToken = Models\Users::select(['device_id','device_type'])
                                        ->where('id', $userId)
                                        ->first();
-              
+         
         if(is_null($deviceToken))
         {
             $this->_lastError = new Exception("Device token not found for customerId {$userId}");
@@ -99,26 +100,27 @@ class Client implements Interfaces\Client
 
     public function toDevice(Array $tokens, $text, Array $customData = [], $userId, $appInfo, $jobId = 0)
     {
+
+      
         $text = $this->trim($text);
        
         // $this->saveInDB($userId, $text, $customData, $jobId);
         try{
 
             $resp1 = true;
+        
             if (!empty($tokens['device_id'])  && $tokens['device_type'] == 'IOS')
             {
-               
                     
                 $service = $this->proAppleService;
-                
-               
+          
                 $resp1 = $service->toDevice(
                     $tokens['device_id'],
                     $text,
                     $customData,
                     ''
                 );
-               
+              
                 if (!$resp1)
                     $this->_lastError = $service->lastError();
 
