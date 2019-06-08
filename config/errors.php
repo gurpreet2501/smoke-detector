@@ -74,6 +74,7 @@ return [
 	'183' => 'Shared with id is required',
 	'184' => 'keyword field required',
 	'185' => 'No Results found!',
+	'186' => 'You are not authorised to do this operation!',
 	
 ];
  ?>

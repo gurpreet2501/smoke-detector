@@ -19,7 +19,6 @@ class read
 	public function customer(Request $request, $user_id){
 				
 		$data = $request->get('data');
-		
 
 			// Send notification to admin to share machine
 
