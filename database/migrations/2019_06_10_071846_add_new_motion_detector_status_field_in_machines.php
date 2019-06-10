@@ -11,7 +11,7 @@ class AddNewMotionDetectorStatusFieldInMachines extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up()  
     {
         Schema::table('sdetect_machines', function (Blueprint $table) {
             $table->boolean('motion_detector_status')->after('machine_status');
