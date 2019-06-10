@@ -33,7 +33,11 @@ class read
 
 		$data = Validate::unsetFields($resp->toArray());
 
+		$total_shared_machines = Models\SharedMachines::where('shared_by',$user_id)->count();
+
 		$data['machines_count'] = $machines_count;
+		$data['total_shared_machines'] = $total_shared_machines;
+
 		$token = User::generateToken($user_id);
 		return ZrApi::success($data,$token);
 

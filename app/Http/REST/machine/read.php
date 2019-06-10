@@ -19,17 +19,17 @@ class read
 	public function customer(Request $request, $user_id){
 				
 		$data = $request->get('data');
-		
 
 
 					 Notifications::push()->toCustomer(
 				            $user_id,
 				            'machine-unblocked',
-				            ['machine_name' => 'abc'],
-				            ['notification_type'  => 'status', 'machine_type'  => 'SHARED']
+
+				            ['machine_name' => 'Machine 1'],
+				            ['notification_type'  => 'status', 'machine_type'  => 'Test']
+
 				           
 			  		); 
-
 
 		$data['user_id'] = $user_id;
 	
