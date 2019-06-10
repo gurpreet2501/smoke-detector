@@ -23,7 +23,8 @@ class Machine extends Model
         'room_id',
         'is_admin',
         'user_id',
-        'machine_status'
+        'machine_status',
+        'motion_detector_status'
 
     ];
 

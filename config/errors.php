@@ -75,6 +75,10 @@ return [
 	'184' => 'keyword field required',
 	'185' => 'No Results found!',
 	'186' => 'You are not authorised to do this operation!',
+	'187' => 'Floor Id is required',
+	'188' => 'Valve serial is required',
+	'189' => 'Valve serial already exists',
+	'190' => 'Valve status field required',
 	
 ];
  ?>
