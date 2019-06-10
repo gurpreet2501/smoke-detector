@@ -20,6 +20,17 @@ class read
 				
 		$data = $request->get('data');
 		
+
+
+					 Notifications::push()->toCustomer(
+				            $user_id,
+				            'machine-unblocked',
+				            ['machine_name' => 'abc'],
+				            ['notification_type'  => 'status', 'machine_type'  => 'SHARED']
+				           
+			  		); 
+
+
 		$data['user_id'] = $user_id;
 	
 		$req_fields = Validate::fields($data, $this->rules);
