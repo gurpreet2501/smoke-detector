@@ -16,4 +16,8 @@ class SharedMachines extends Model
     public function machine(){
     	return $this->hasOne(Machine::class, 'id','machine_id');
     }
+
+    public function sharedUser(){
+    	return $this->hasMany(Users::class, 'id','shared_with');
+    }
 }

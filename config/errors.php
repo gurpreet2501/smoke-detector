@@ -79,6 +79,7 @@ return [
 	'188' => 'Valve serial is required',
 	'189' => 'Valve serial already exists',
 	'190' => 'Valve status field required',
+	'191' => 'No shared users found',
 	
 ];
  ?>
