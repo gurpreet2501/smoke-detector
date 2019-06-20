@@ -81,6 +81,7 @@ return [
 	'190' => 'Valve status field required',
 	'191' => 'No shared users found',
 	'192' => 'Home not found',
+	'193' => 'Shared with user id required',
 	
 ];
  ?>
