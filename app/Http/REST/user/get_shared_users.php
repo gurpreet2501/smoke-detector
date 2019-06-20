@@ -36,10 +36,12 @@ class get_shared_users
 			return ZrApi::errorCode(191);
 
 		foreach ($Shared_machines_with_users as $key => $record) {
-			$shared_users[] = $record->sharedUser;
+			
+			$shared_users[] = Validate::unsetFields($record->sharedUser->toArray()[0]);
 			# code...
 		}
 
+		
 		return ZrApi::success($shared_users,$request->get('token'));
 	}
 
