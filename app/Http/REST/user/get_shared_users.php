@@ -23,7 +23,8 @@ class get_shared_users
 			
 		if($req_fields['STATUS'] == 'FAILED')
 			return $req_fields;
-	
+		
+		$shared_users = [];
 
 		$Shared_machines_with_users = Models\SharedMachines::where('shared_by', $user_id)
 														->with('sharedUser')
@@ -34,7 +35,12 @@ class get_shared_users
 		if(count($Shared_machines_with_users) <= 0)
 			return ZrApi::errorCode(191);
 
-		return ZrApi::success($Shared_machines_with_users,$request->get('token'));
+		foreach ($Shared_machines_with_users as $key => $record) {
+			$shared_users[] = $record->sharedUser;
+			# code...
+		}
+
+		return ZrApi::success($shared_users,$request->get('token'));
 	}
 
 	
