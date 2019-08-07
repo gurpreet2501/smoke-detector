@@ -20,18 +20,16 @@ class read
 				
 		$data = $request->get('data');
 
-			// Send notification to admin to share machine
 
 					 Notifications::push()->toCustomer(
 				            $user_id,
 				            'machine-unblocked',
+
 				            ['machine_name' => 'Machine 1'],
 				            ['notification_type'  => 'status', 'machine_type'  => 'Test']
+
 				           
 			  		); 
-
-
-
 
 		$data['user_id'] = $user_id;
 	

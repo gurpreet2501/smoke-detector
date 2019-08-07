@@ -52,5 +52,41 @@ class update
 	  return ZrApi::success($machine->toArray(),$request->get('token'));
 
 	}
+
+  public function guest(Request $request,$user_id){
+				
+		$data = $request->get('data');
+		
+		$machine_id = $data['machine_id'];
+	
+		$req_fields = Validate::fields($data, $this->rules);
+		
+		if($req_fields['STATUS'] == 'FAILED') 
+			return $req_fields;
+		
+	
+	 	$machine = [];
+		
+		$machine = Models\Machine::where('id', $data['machine_id'])
+							->first();
+						
+		//Checking if key is not present then it will add the condition with null		
+		
+	
+		unset($data['machine_id']);
+		unset($data['floor_id']);
+		unset($data['room_id']);
+		unset($data['home_id']);
+
+		if(!$machine)
+			return ZrApi::errorCode(186);
+
+		$machine->update($data);
+
+		$machine = Models\Machine::find($machine_id);
+
+	  return ZrApi::success($machine->toArray(),'');
+
+	}
 	
 }
