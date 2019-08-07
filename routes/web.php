@@ -84,9 +84,10 @@ Route::post("/{version}", function ($version, Request $request) {
 				$resp =  $obj->admin($request,$user_id);
 			}
 		}else{
+	
 			if(!method_exists($obj, 'guest'))
 					return ZrApi::errorCode(141);
-
+			
 			$resp =  $obj->guest($request,$user_id=null);
 		}
 		
@@ -137,6 +138,7 @@ Route::get("/{version}", function ($version, Request $request) {
 				$resp =  $obj->admin($request,$user_id);
 			}
 		}else{
+		
 			if(!method_exists($obj, 'guest'))
 					return Resp::errorCode(141);
  
