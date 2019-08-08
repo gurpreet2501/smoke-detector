@@ -8,7 +8,8 @@ use App\Notifications\Factory as Notifications;
 use Illuminate\Support\Facades\Hash;
 use App\Libs\Notifications\Factory as Resp;
 
-class share
+
+class share extends Notification
 {
 
 	protected $rules = [
@@ -19,7 +20,7 @@ class share
 	];	
   
 	public function customer(Request $request, $user_id){
-				
+	      
 		$data = $request->get('data');
 
 		$data['user_id'] = $user_id;

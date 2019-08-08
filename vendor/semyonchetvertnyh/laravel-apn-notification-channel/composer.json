@@ -1,0 +1,56 @@
+{
+    "name": "semyonchetvertnyh/laravel-apn-notification-channel",
+    "description": "Apple Push Notification Service (APNs) notifications channel for Laravel 5.3+ using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key)",
+    "keywords": [
+        "apns",
+        "push notifications",
+        "p8",
+        "php apns",
+        "laravel apns",
+        "laravel p8"
+    ],
+    "homepage": "https://github.com/semyonchetvertnyh/laravel-apn-notification-channel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Semyon Chetvertnyh",
+            "email": "semyon.chetvertnyh@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "edamov/pushok": "^0.4.3",
+        "illuminate/notifications": "~5.3|~5.4|~5.5|~5.6|~5.7|~5.8",
+        "illuminate/support": "~5.1|~5.2|~5.3|~5.4|~5.5|~5.6|~5.7|~5.8"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.5",
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SemyonChetvertnyh\\ApnNotificationChannel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SemyonChetvertnyh\\ApnNotificationChannel\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SemyonChetvertnyh\\ApnNotificationChannel\\ApnServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
