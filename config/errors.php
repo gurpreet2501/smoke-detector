@@ -79,6 +79,11 @@ return [
 	'188' => 'Valve serial is required',
 	'189' => 'Valve serial already exists',
 	'190' => 'Valve status field required',
+	'191' => 'No shared users found',
+	'192' => 'Home not found',
+	'193' => 'Shared with user id required',
+	'194' => 'Alarm status is required',
+	'195' => 'Valve not found',
 	
 ];
  ?>

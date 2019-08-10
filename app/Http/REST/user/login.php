@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Libs\Notifications\Factory as Resp;
 use App\Libs\Validate;
 use App\Libs\ZrApi;
-
+use Illuminate\Notifications\Notification;
+use SemyonChetvertnyh\ApnNotificationChannel\ApnMessage;
 
 class login
 {
@@ -20,6 +21,7 @@ class login
 	];	
 	public function guest(Request $request,$user_id){
  
+     
 		$data = $request->get('data');
 	
 		$req_fields = Validate::fields($data, $this->rules);

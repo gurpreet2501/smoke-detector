@@ -24,7 +24,8 @@ class Machine extends Model
         'is_admin',
         'user_id',
         'machine_status',
-        'motion_detector_status'
+        'motion_detector_status',
+        'alarm_status'
 
     ];
 
