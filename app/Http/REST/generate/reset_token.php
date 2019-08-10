@@ -33,9 +33,7 @@ class reset_token
 	    $user->update();
 	    $message = 'Click the link below to reset your password: ';
 	    $message .= env('RESET_PASSWORD_URL','http://sewerage-api.com/reset-password').'?token='.$reset_token;
-	    echo "<pre>";
-	    print_r($message);
-	    exit;
+	   
 	    if(!Email::send('Password reset token',$message,'',$data['email']))
 	    	return Resp::errorCode(156);
 
