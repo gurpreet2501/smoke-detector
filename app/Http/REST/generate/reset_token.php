@@ -26,13 +26,16 @@ class reset_token
 		if(!$user)
 			return Resp::errorCode(155);
 
-		$token = User::generate_hash();
+		  $token = User::generate_hash();
 	    $reset_token = User::removeSpecialChars($token);		
+	  
 	    $user->password_reset_token = $reset_token;
 	    $user->update();
 	    $message = 'Click the link below to reset your password: ';
-	    $message .= env('RESET_PASSWORD_URL','http://theheavenhomes.com/sewer-web/index.php/reset/user_password').'?token='.$reset_token;
-
+	    $message .= env('RESET_PASSWORD_URL','http://sewerage-api.com/reset-password').'?token='.$reset_token;
+	    echo "<pre>";
+	    print_r($message);
+	    exit;
 	    if(!Email::send('Password reset token',$message,'',$data['email']))
 	    	return Resp::errorCode(156);
 

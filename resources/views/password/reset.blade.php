@@ -1,5 +1,5 @@
 <?php $data=[
-        'page_title' => "Forgot Password",
+        'page_title' => "Reset Password",
     ] ; ?>
 @include('partials.header',$data);
 <body>
@@ -7,8 +7,8 @@
 	<div class="row">
 		<div class="col-md-4"></div>	
 		<div class="col-md-4">   
-			<h3 class="text-center">Forgot Password</h3>
-			<form action="{{ action('ForgotPasswordController@send_reset_email') }}" accept-charset="UTF-8" method="POST">
+			<h3 class="text-center">Reset Password</h3>
+			<form action="{{ action('ResetPasswordController@send_reset_email') }}" accept-charset="UTF-8" method="POST">
 				<div class="form-group">
 					<label>Enter email</label>
 					<input type="text" name="email" class="form-control" />

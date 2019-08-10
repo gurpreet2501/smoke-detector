@@ -36,8 +36,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('forgot-password','ForgotPasswordController@show');
-Route::post('send-reset-email','ForgotPasswordController@send_reset_email');
+Route::get('reset-password','ResetPasswordController@show');
+Route::post('send-reset-email','ResetPasswordController@send_reset_email');
 
 Route::get('/migrate', function () {
 	Artisan::call('migrate');
@@ -70,8 +70,9 @@ Route::post("/{version}", function ($version, Request $request) {
 			$post['data'] = [];	
 	
 		$user = Models\Users::where('id',$user_id)->first();
-	
+		
 		if(!empty($user->role)){
+
 			if($user->role == 'CUSTOMER'){
 				if(!method_exists($obj, 'customer'))
 						return ZrApi::errorCode(141);

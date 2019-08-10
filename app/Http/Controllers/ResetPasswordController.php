@@ -6,7 +6,7 @@ use App\User;
 use App\Models;
 use App\Http\Controllers\Controller;
 
-class ForgotPasswordController extends Controller
+class ResetPasswordController extends Controller
 {
     /**
      * Show the profile for the given user.
@@ -16,18 +16,15 @@ class ForgotPasswordController extends Controller
      */
     public function show()
     {
-        return view('password.forgot');
+        return view('password.reset');
     }
 
     public function send_reset_email()
     {
-        $record = Models\Users::where('email',$_POST['email'])->first();
-        echo "<pre>";
-        print_r($record);
-        exit;
-
+        $record = Models\Users::where('email', $_POST['email'])->first();
+        
         if(!$record)
-            return 
-        return view('password.forgot');
+            return;
+        return view('password.reset');
     }
 }
