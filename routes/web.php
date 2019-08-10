@@ -29,13 +29,15 @@ use App\Libs\Notifications\Factory as Resp;
 */
 
 
-
 Route::get('/', function () {
 
     return view('welcome');
 
 });
 
+
+Route::get('forgot-password','ForgotPasswordController@show');
+Route::post('send-reset-email','ForgotPasswordController@send_reset_email');
 
 Route::get('/migrate', function () {
 	Artisan::call('migrate');
