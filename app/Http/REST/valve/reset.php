@@ -28,9 +28,9 @@ class reset
 		
 		$valve = Models\SdetectValves::where('floor_id', trim($data['floor_id']))
 							->first();
-    
+  
     if(!$valve)
-    	return ZrApi::errorCode(189);				
+    	return ZrApi::errorCode(196);				
  
 		 $valve->update(['valve_status' => 0]);
 
