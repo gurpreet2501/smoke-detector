@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Libs\Notifications\Factory as Resp;
 use App\Libs\Validate;
 use App\Libs\ZrApi;
-use Illuminate\Notifications\Notification;
-use SemyonChetvertnyh\ApnNotificationChannel\ApnMessage;
+use App\Libs\NotificationsP8 as APN;
+
 
 class login
 {
@@ -19,8 +19,10 @@ class login
         'device_type' => 159,
         'device_token' => 160
 	];	
-	public function guest(Request $request,$user_id){
- 
+
+	public function guest(Request $request, $user_id){
+
+		APN::send('3c080ef0f145f1d7b01466d9436fbe47b548752a4f362fad80d33a3343a088dd','Push notifications done');
      
 		$data = $request->get('data');
 	

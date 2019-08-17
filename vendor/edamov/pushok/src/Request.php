@@ -19,7 +19,7 @@ namespace Pushok;
  */
 class Request
 {
-    const APNS_DEVELOPMENT_SERVER = 'https://api.development.push.apple.com';
+    const APNS_DEVELOPMENT_SERVER = 'https://api.sandbox.push.apple.com';
     const APNS_PRODUCTION_SERVER = 'https://api.push.apple.com';
     const APNS_PORT = 443;
     const APNS_PATH_SCHEMA = '/3/device/{token}';

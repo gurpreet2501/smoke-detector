@@ -85,7 +85,6 @@ return [
 	'194' => 'Alarm status is required',
 	'195' => 'Valve not found',
 	'196' => 'No valve exists for this floor id',
-
 	
 ];
  ?>

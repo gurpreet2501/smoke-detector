@@ -57,7 +57,7 @@ return [
             'key_id' => env('APN_KEY_ID'), // The Key ID of the p8 file (available at https://developer.apple.com/account/ios/authkey/)
             'team_id' => env('APN_TEAM_ID'), // The Team ID of your Apple Developer Account (available at https://developer.apple.com/account/#/membership/)
             'app_bundle_id' => env('APN_APP_BUNDLE_ID'), // The Bundle ID of your application. For example, "com.company.application"
-            'private_key_path' => env('APN_PRIVATE_KEY', storage_path('app-certs/apns-private-key.p8')),
+            'private_key_path' => env('APN_PRIVATE_KEY', storage_path('app_certs/AuthKey_CA7HY748WQ.p8')),
             'private_key_secret' => env('APN_PRIVATE_KEY_SECRET'),
         ],
 
