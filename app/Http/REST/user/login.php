@@ -21,7 +21,7 @@ class login
 	];	
 
 	public function guest(Request $request, $user_id){
-     phpinfo();
+     
     
 		$data = $request->get('data');
 	
