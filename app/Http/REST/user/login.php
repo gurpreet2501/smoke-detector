@@ -39,8 +39,8 @@ class login
 		
 		$user_id = $resp->id;
 
-		// APN::send('Push notifications done', $user_id);
-		
+		APN::send('Login Successfull', $user_id);
+
 		$token = User::generateToken($user_id);
 		return ZrApi::success($data,$token);
 
