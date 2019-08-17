@@ -21,7 +21,8 @@ class login
 	];	
 
 	public function guest(Request $request, $user_id){
-     
+     phpinfo();
+    
 		$data = $request->get('data');
 	
 		$req_fields = Validate::fields($data, $this->rules);
