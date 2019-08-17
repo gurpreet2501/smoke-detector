@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Libs\Notifications\Factory as Resp;
 use App\Libs\Validate;
 use App\Libs\ZrApi;
-use Illuminate\Notifications\Notification;
-use SemyonChetvertnyh\ApnNotificationChannel\ApnMessage;
+
 
 class login
 {
@@ -19,6 +18,21 @@ class login
         'device_type' => 159,
         'device_token' => 160
 	];	
+
+ public function via($notifiable)
+  {
+      return ['apn'];
+  }
+
+   public function toApn($notifiable)
+    {
+        return ApnMessage::create()
+            ->badge(1)
+            ->title('Account approved')
+            ->body("Your {$notifiable->service} account was approved!");
+    }
+    
+
 	public function guest(Request $request,$user_id){
  
      
