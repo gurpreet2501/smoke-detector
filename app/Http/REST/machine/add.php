@@ -57,13 +57,13 @@ class add
 
 					//Send notification to admin to share machine
 
-					 // Notifications::push()->toCustomer(
-				  //           $res->user_id,
-				  //           'machine-unblocked',
-				  //           ['machine_name' => $resp->machine_name],
-				  //           ['notification_type'  => 'status', 'machine_type'  => $resp->type]
+					 Notifications::push()->toCustomer(
+				            $res->user_id,
+				            'machine-unblocked',
+				            ['machine_name' => $resp->machine_name],
+				            ['notification_type'  => 'status', 'machine_type'  => $resp->type]
 				           
-			  	// 	); 
+			  		); 
 
 
 					return ZrApi::success($res->toArray(),$request->get('token'));

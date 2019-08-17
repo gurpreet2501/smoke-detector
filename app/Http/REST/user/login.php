@@ -21,8 +21,6 @@ class login
 	];	
 
 	public function guest(Request $request, $user_id){
-
-		APN::send('3c080ef0f145f1d7b01466d9436fbe47b548752a4f362fad80d33a3343a088dd','Push notifications done');
      
 		$data = $request->get('data');
 	
@@ -40,6 +38,9 @@ class login
 		$data = Validate::unsetFields($resp->toArray());
 		
 		$user_id = $resp->id;
+
+		// APN::send('Push notifications done', $user_id);
+		
 		$token = User::generateToken($user_id);
 		return ZrApi::success($data,$token);
 

@@ -21,9 +21,14 @@ class NotificationsP8
 		
 	}
 
-	public static function send($device_token, $notification_title){
+	public static function send($notification_title, $user_id){
 			$apn_env = false;
  			
+ 			$user = Models\Users::where('id',$user_id)->first();
+ 			
+ 			if(!$user)
+ 				return false;
+
  			if(env('APN_ENVIRONMENT') == 'PRODUCTION')
  				$apn_env = true;
 
@@ -40,8 +45,8 @@ class NotificationsP8
 			$alert = Alert::create()->setTitle($notification_title);
 
 			$payload = Payload::create()->setAlert($alert);
-			
-			$deviceTokens = [$device_token];
+		
+			$deviceTokens = [$user->device_token];
 
 			$notifications = [];
 			foreach ($deviceTokens as $deviceToken) {
@@ -54,6 +59,7 @@ class NotificationsP8
 			$responses = $client->push(); // returns an array of Responses (one Response per Notification)
 			
 			foreach ($responses as $response) {
+				
 			    // $response->getApnsId();
 			    if($response->getStatusCode() == 400)
 			    	return false;
