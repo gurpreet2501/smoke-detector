@@ -1,7 +1,5 @@
 <?php
-echo "<pre>";
-print_r(storage_path('app_certs/AuthKey_CA7HY748WQ.p8'));
-exit;
+
 return [
 
     /*
