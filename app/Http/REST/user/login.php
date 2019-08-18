@@ -40,7 +40,7 @@ class login
 		
 		$user_id = $resp->id;
 
-		APN::send('Machine added successfully', $user_id);
+		APN::send('Machine removed successfully', $user_id);
 
 		$token = User::generateToken($user_id);
 		return ZrApi::success($data,$token);
