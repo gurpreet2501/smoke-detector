@@ -59,7 +59,9 @@ class NotificationsP8
 			$responses = $client->push(); // returns an array of Responses (one Response per Notification)
 			
 			foreach ($responses as $response) {
-				
+					echo "<pre>";
+					print_r($response);
+					exit;
 			    // $response->getApnsId();
 			    if($response->getStatusCode() == 400)
 			    	return false;
