@@ -124,13 +124,13 @@
             "authors": [
                 {
                     "name": "Benjamin Eberlei",
-                    "role": "Lead Developer",
-                    "email": "kontakt@beberlei.de"
+                    "email": "kontakt@beberlei.de",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Richard Quadling",
-                    "role": "Collaborator",
-                    "email": "rquadling@gmail.com"
+                    "email": "rquadling@gmail.com",
+                    "role": "Collaborator"
                 }
             ],
             "description": "Thin assertion library for input validation in business models.",
@@ -750,9 +750,9 @@
             "authors": [
                 {
                     "name": "Arthur Edamov",
-                    "role": "Developer",
                     "email": "edamov@gmail.com",
-                    "homepage": "https://github.com/edamov"
+                    "homepage": "https://github.com/edamov",
+                    "role": "Developer"
                 }
             ],
             "description": "PHP client for Apple Push Notification Service (APNs) - Send push notifications to iOS using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key) or certificate-based authentication",
@@ -911,9 +911,9 @@
             "authors": [
                 {
                     "name": "Friedrich Große",
-                    "role": "Author",
                     "email": "friedrich.grosse@gmail.com",
-                    "homepage": "https://github.com/FGrosse"
+                    "homepage": "https://github.com/FGrosse",
+                    "role": "Author"
                 },
                 {
                     "name": "All contributors",
@@ -1582,19 +1582,19 @@
             "authors": [
                 {
                     "name": "Matyas Danter",
-                    "role": "Author",
-                    "homepage": "http://matejdanter.com/"
+                    "homepage": "http://matejdanter.com/",
+                    "role": "Author"
                 },
                 {
                     "name": "Thibaud Fabre",
-                    "role": "Maintainer",
                     "email": "thibaud@aztech.io",
-                    "homepage": "http://aztech.io"
+                    "homepage": "http://aztech.io",
+                    "role": "Maintainer"
                 },
                 {
                     "name": "Thomas Kerin",
-                    "role": "Maintainer",
-                    "email": "afk11@users.noreply.github.com"
+                    "email": "afk11@users.noreply.github.com",
+                    "role": "Maintainer"
                 }
             ],
             "description": "PHP Elliptic Curve Cryptography library",
@@ -2006,20 +2006,21 @@
                 "library",
                 "php"
             ],
+            "abandoned": true,
             "time": "2015-05-06T13:25:45+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.0.5",
+            "version": "v6.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32"
+                "reference": "8190d73eb5def11a43cfb020b7f36db65330698c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/cb3ea134d4d3729e7857737d5f320cce9caf4d32",
-                "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/8190d73eb5def11a43cfb020b7f36db65330698c",
+                "reference": "8190d73eb5def11a43cfb020b7f36db65330698c",
                 "shasum": ""
             },
             "require": {
@@ -2072,7 +2073,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2018-03-27T13:49:45+00:00"
+            "time": "2018-11-16T00:41:32+00:00"
         },
         {
             "name": "psr/cache",
@@ -2444,17 +2445,17 @@
             ],
             "authors": [
                 {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                },
+                {
                     "name": "Marijn Huizendveld",
                     "email": "marijn.huizendveld@gmail.com"
                 },
                 {
                     "name": "Thibaud Fabre",
                     "email": "thibaud@aztech.io"
-                },
-                {
-                    "name": "Ben Ramsey",
-                    "email": "ben@benramsey.com",
-                    "homepage": "https://benramsey.com"
                 }
             ],
             "description": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
@@ -2510,8 +2511,8 @@
             "authors": [
                 {
                     "name": "Semyon Chetvertnyh",
-                    "role": "Developer",
-                    "email": "semyon.chetvertnyh@gmail.com"
+                    "email": "semyon.chetvertnyh@gmail.com",
+                    "role": "Developer"
                 }
             ],
             "description": "Apple Push Notification Service (APNs) notifications channel for Laravel 5.3+ using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key)",
@@ -2823,6 +2824,7 @@
                 }
             ],
             "description": "Thin wrapper for the Geocodio API",
+            "abandoned": "geocodio/geocodio-library-php",
             "time": "2018-03-14T01:43:05+00:00"
         },
         {
