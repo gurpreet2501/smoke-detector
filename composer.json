@@ -9,7 +9,7 @@
         "aws/aws-sdk-php": "^3.18",
         "doctrine/dbal": "^2.7",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "5.6.*",
+        "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "mjaschen/phpgeo": "^1.3",
         "php-gcm/php-gcm": "^1.1",
